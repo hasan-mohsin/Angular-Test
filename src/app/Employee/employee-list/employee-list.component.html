@@ -1,0 +1,28 @@
+  <select [(ngModel)]="EmployeeSelected" (change)="onEmployeeSelected(EmployeeSelected)">
+      <option *ngFor="let employee of employees">
+        {{employee.title}}
+      </option>
+  </select>
+
+
+<div class="container">
+      <table class=".table-bordered">
+        <thead>
+          <th>UserId</th>  
+          <th>Id</th>
+          <th>Title</th>
+          <th>Body</th>
+        </thead>
+        <tbody class=".table-bordered" *ngFor="let employee of employees">
+          <td>{{employee.userId}}</td>
+          <td>{{employee.id}}</td>
+          <td>{{employee.title}}</td>
+          <td>{{employee.body}}</td>
+          <button type="submit" style="margin:5px;" class="btn btn-primary" (click)="DeleteValue(employee.id)"> Delete</button>
+        
+          <button type="submit" style="margin:5px;" class="btn btn-primary" (click)="EditValue(employee)">Edit</button> 
+        </tbody>
+        <button class="btn btn-primary" (click)="goToPage('create-employee')">Add Post</button> 
+      </table>
+    </div>
+     

@@ -1,0 +1,83 @@
+<div class="container">
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div class="mb-3">
+    <label for="Id" class="form-label">ID</label>
+    <input type="id" class="form-control" id="Id" name=id [ngModel]="id"> 
+  </div>
+  <div>
+    <label for="Name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="Name" name=name [ngModel]="name">
+  </div>
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" name=email [ngModel]="email">
+  </div>
+  <div class="mb-3">
+    <label for="Password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="Password" name=password [ngModel]="password">
+  </div>
+  
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="gender" id="radio" value="Male" [(ngModel)]="gender">
+    <label class="form-check-label" for="radioMale">
+      Male
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="gender" id="radio" value="Female" [(ngModel)]="gender">
+    <label class="form-check-label" for="radioFemale">
+      Female
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Arabic" id="flexCheckDefault" name="language" ngModel>
+    <label class="form-check-label" for="flexCheckDefault">
+      Arabic
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Persian" id="flexCheckChecked" name="language" ngModel>
+    <label class="form-check-label" for="flexCheckChecked">
+      Persian
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="Urdu" id="flexCheckDefault" name="language" ngModel>
+    <label class="form-check-label" for="flexCheckDefault">
+      Urdu
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="English" id="flexCheckChecked"  name="language" ngModel>
+    <label class="form-check-label" for="flexCheckChecked">
+      English
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.password}}</td>
+      <td>{{employee.gender}}</td>
+      <td>{{employee.language}}</td>
+      <button type="submit" (click)="onDelete(employee.id)" class="btn btn-primary">Delete</button>
+      <button type="submit" (click)="onEdit(employee)" class="btn btn-primary">Edit</button>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+</div>
